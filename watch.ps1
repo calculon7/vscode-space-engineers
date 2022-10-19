@@ -20,8 +20,9 @@ if (-not ($file.Extension -ieq '.cs')) {
 }
 
 Write-Output "watching file for changes: $filepath"
+Write-Output "(ctrl+c to stop)"
 
-$lastHash = (Get-FileHash $filepath -Algorithm MD5).Hash
+$lastHash = ''
 
 while ($true) {
     $newHash = (Get-FileHash $filepath -Algorithm MD5).Hash
