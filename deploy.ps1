@@ -10,20 +10,20 @@ if (-not $filepath) {
 
 if (-not (Test-Path $filepath)) {
     Write-Output 'input file not found'
-    exit 1
+    exit 2
 }
 
 $file = Get-Item $filepath
 if (-not ($file.Extension -ieq '.cs')) {
     Write-Output 'input file invalid type'
-    exit 2
+    exit 3
 }
 
 # get file content in script region
 $match = $(Get-Content $file -Raw) -match '(?s)#region script\s*(.*)\s*#endregion script'
 if (-not $match) {
     Write-Output 'could not parse script content'
-    exit 3
+    exit 4
 }
 
 $exportedScriptContent = $Matches[1]
