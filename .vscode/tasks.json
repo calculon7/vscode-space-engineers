@@ -4,13 +4,24 @@
         {
             "label": "deploy",
             "type": "shell",
-            "command": "${workspaceFolder}/export.ps1",
+            "command": "${workspaceFolder}/deploy.ps1",
             "args": [
                 "${file}"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
+            }
+        },
+        {
+            "label": "watch",
+            "type": "shell",
+            "command": "${workspaceFolder}/watch.ps1",
+            "args": [
+                "${file}"
+            ],
+            "group": {
+                "kind": "build"
             }
         }
     ]
