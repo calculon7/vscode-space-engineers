@@ -37,7 +37,7 @@ $seScriptPath = "$env:USERPROFILE/AppData/Roaming/SpaceEngineers/IngameScripts/l
 
 $newScriptDir = Join-Path $seScriptPath $file.BaseName
 if (-not (Test-Path $newScriptDir)) {
-    New-Item $newScriptDir -ItemType Directory
+    New-Item $newScriptDir -ItemType Directory | Out-Null
 }
 
 # get or create new file
